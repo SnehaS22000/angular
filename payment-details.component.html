@@ -1,0 +1,67 @@
+<div class="jumbtron">
+  <h1 class="display-4 text-center">Payment Detail Register</h1>
+  <hr>
+  <div class="row">
+    <div class="col-md-5">
+      <app-payment-detail></app-payment-detail>
+    </div>
+    <div class="col-md-7">
+     <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th> Card Owner</th>
+          <th> Card Number</th>
+          <th> Expiration Date</th>
+          <th> Cvv</th>
+          <th>Delete/Modify</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of service.list">
+
+          <td >{{item.cardOwnerName}}</td>
+          <td >{{item.cardNumber}}</td>
+          <td >{{item.expirationDate}}</td>
+          <td >{{item.cvv}}</td>
+
+            <td><button type="button" class="btn btn-danger mr-1"(click)='ondelete(item.pmId)'>Delete</button>
+              <!-- <button type="button" class="btn btn-info"[disabled]='clicked_modify'(click)='toogleonclick(item.pmId)'>Modify</button></td>
+              <div class="form-group"> -->
+                <button type="button" class="btn btn-secondary"(click)='onselect(item.pmId)'>Details</Details></button>
+              </div>
+
+<!--
+        <div *ngIf="clicked_modify && item.pmId==clicked_id">
+          <form #formedit ="ngForm" autocomplete="off" (submit)="onupdate(formedit)">
+            <input type="hidden" name="pmId" #pmId="ngModel" [(ngModel)]="item.pmId" class="form-control">
+            <div class="form-group">
+            <input name="cardOwnerName"#cardOwnerName="ngModel" [(ngModel)]="item.cardOwnerName" class="form-control"
+            placeholder="Card Owner Name" required>
+            </div>
+            <div class="form-group">
+              <input name="cardNumber"#cardOwnerName="ngModel" [(ngModel)]="item.cardNumber" class="form-control"
+              placeholder="Card Number" required>
+              </div>
+              <div class="form-group">
+                <input name="expirationDate"#expirationDate="ngModel" [(ngModel)]="item.expirationDate" class="form-control"
+                placeholder="Expiration Date" required>
+                </div>
+                <div class="form-group">
+                  <input name="cVV"#cVV="ngModel" [(ngModel)]="item.cvv" class="form-control"
+                  placeholder="CVV" required>
+                  </div>
+                  <div class="form-group">
+                    <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="formedit.invalid"><i class="fas fa-database"></i> Submit</button>
+                  </div>
+                  <div class="form-group">
+                    <button type="button" class="btn btn-danger"(click)='canceledit()'>cancel</button>
+                  </div> -->
+
+          </form>
+        </div>
+      </tr>
+      </tbody>
+     </table>
+    </div>
+  </div>
+</div>
